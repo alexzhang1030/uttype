@@ -5,6 +5,7 @@
   "description": "Utility types library.",
   "types": "./src/index.d.ts",
   "scripts": {
+    "prepublishOnly": "pnpm run test",
     "release": "bumpp --commit \"chore: release v%s\" --push --tag && pnpm publish",
     "test": "tsc --noEmit"
   },
