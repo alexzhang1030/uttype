@@ -1,0 +1,41 @@
+{
+  "name": "uttype",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.2.0",
+  "description": "Utility types library.",
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "pnpm run build",
+    "release": "bumpp --commit \"chore: release v%s\" --push --tag && pnpm publish",
+    "test": "tsc --noEmit"
+  },
+  "keywords": [
+    "types",
+    "utility"
+  ],
+  "files": [
+    "src"
+  ],
+  "author": "alexzhang1030",
+  "license": "MIT",
+  "devDependencies": {
+    "@antfu/eslint-config-ts": "^0.38.4",
+    "@type-challenges/utils": "^0.1.1",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.38.0",
+    "lint-staged": "^13.2.1",
+    "simple-git-hooks": "^2.8.1",
+    "typescript": "^5.0.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,json,md,yaml,yml}": [
+      "eslint --fix"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "@antfu/eslint-config-ts"
+  }
+}
