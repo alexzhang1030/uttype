@@ -3,25 +3,26 @@
   "version": "0.1.2",
   "packageManager": "pnpm@8.2.0",
   "description": "Utility types library.",
-  "types": "./src/index.d.ts",
-  "scripts": {
-    "prepublishOnly": "pnpm run test",
-    "release": "bumpp --commit \"chore: release v%s\" --push --tag && pnpm publish",
-    "test": "tsc --noEmit"
+  "author": "alexzhang1030",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexzhang1030/uttype.git"
   },
   "keywords": [
     "types",
     "utility"
   ],
+  "types": "./src/index.d.ts",
   "files": [
     "src"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexzhang1030/uttype.git"
+  "scripts": {
+    "prepublishOnly": "pnpm run test",
+    "release": "bumpp --commit \"chore: release v%s\" --push --tag && pnpm publish",
+    "test": "tsc --noEmit",
+    "prepare": "simple-git-hooks"
   },
-  "author": "alexzhang1030",
-  "license": "MIT",
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.38.4",
     "@type-challenges/utils": "^0.1.1",
