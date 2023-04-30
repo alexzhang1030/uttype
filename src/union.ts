@@ -1,3 +1,5 @@
+import type { AnyRecord } from './.internal'
+
 /**
  * @description Get values fo a record to union
  * @example
@@ -8,6 +10,6 @@
  * ```
  *
  */
-export type RecordValues<T extends Record<string, any>> = {
+export type RecordValues<T extends AnyRecord> = {
   [K in keyof T]: T[K]
 }[keyof T]

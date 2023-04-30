@@ -9,7 +9,7 @@ assert
 - `AssertTrue`
 - `AssertFalse`
 
-internal extra
+built-in extra
 
 - `OmitByType`
 - `PickByType`

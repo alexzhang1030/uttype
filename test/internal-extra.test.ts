@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import type { OmitByType, PickByType } from '../src'
+import type { OmitByType, OmitReadonlyTypes, PickByType, PickReadonlyTypes } from '..'
 import { describe } from './.internal'
 
 describe('OmitByType', () => {
@@ -32,5 +32,38 @@ describe('PickByType', () => {
 
   type _case = Expect<
    Equal<PickByType<Source, string | boolean>, Expected>
+  >
+})
+
+describe('PickReadonlyTypes', () => {
+  interface Source {
+    readonly name: string
+    age: number
+    isMale: boolean
+  }
+
+  interface Expected {
+    readonly name: string
+  }
+
+  type _case = Expect<
+   Equal<PickReadonlyTypes<Source>, Expected>
+  >
+})
+
+describe('OmitReadonlyTypes', () => {
+  interface Source {
+    readonly name: string
+    age: number
+    isMale: boolean
+  }
+
+  interface Expected {
+    age: number
+    isMale: boolean
+  }
+
+  type _case = Expect<
+   Equal<OmitReadonlyTypes<Source>, Expected>
   >
 })

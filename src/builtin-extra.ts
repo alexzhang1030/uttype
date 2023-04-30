@@ -1,4 +1,5 @@
 import type { AssertFalse, AssertTrue } from './assert'
+import type { AnyRecord, IfEquals } from './.internal'
 
 type OmitOrPickByType<Source, Type, Omit extends boolean = true> = Pick<Source,
   {
@@ -17,7 +18,7 @@ type OmitOrPickByType<Source, Type, Omit extends boolean = true> = Pick<Source,
  * ```
  *
  */
-export type OmitByType<Type, OmitType> = OmitOrPickByType<Type, OmitType>
+export type OmitByType<Type extends AnyRecord, OmitType> = OmitOrPickByType<Type, OmitType>
 
 /**
  * @description Pick by given type
@@ -29,4 +30,35 @@ export type OmitByType<Type, OmitType> = OmitOrPickByType<Type, OmitType>
  * ```
  *
  */
-export type PickByType<Type, PickType> = OmitOrPickByType<Type, PickType, false>
+export type PickByType<Type extends AnyRecord, PickType> = OmitOrPickByType<Type, PickType, false>
+
+type ReadonlyKeys<T extends AnyRecord> = {
+  [P in keyof T]-?: IfEquals<
+    { [Q in P]: T[P] },
+    { -readonly [Q in P]: T[P] },
+    never,
+    P
+  >
+}[keyof T]
+
+/**
+ * @description Pick readonly types
+ * @example
+ *
+ * ```ts
+ * PickReadonlyTypes<{ readonly name: string, age: number }>
+ * // ^? { readonly name: string }
+ * ```
+ */
+export type PickReadonlyTypes<T extends AnyRecord> = Pick<T, ReadonlyKeys<T>>
+
+/**
+ * @description Omit readonly types
+ * @example
+ *
+ * ```ts
+ * PickReadonlyTypes<{ readonly name: string, age: number }>
+ * // ^? { age: number }
+ * ```
+ */
+export type OmitReadonlyTypes<T extends AnyRecord> = Omit<T, ReadonlyKeys<T>>
