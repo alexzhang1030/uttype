@@ -14,6 +14,9 @@ built-in extra
 - `OmitByType`
 - `PickByType`
 
+- `PickReadonly`
+- `OmitReadonly`
+
 union
 
 - `RecordValues`
