@@ -1,9 +1,9 @@
-import { AssertFalse, AssertTrue } from "./assert"
+import type { AssertFalse, AssertTrue } from './assert'
 
 type OmitOrPickByType<Source, Type, Omit extends boolean = true> = Pick<Source,
   {
     [K in keyof Source]: Source[K] extends Type ?
-    AssertFalse<Omit, K> : AssertTrue<Omit, K>
+      AssertFalse<Omit, K> : AssertTrue<Omit, K>
   }[keyof Source]
 >
 
