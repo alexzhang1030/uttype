@@ -50,7 +50,7 @@ type ReadonlyKeys<T extends AnyRecord> = {
  * // ^? { readonly name: string }
  * ```
  */
-export type PickReadonlyTypes<T extends AnyRecord> = Pick<T, ReadonlyKeys<T>>
+export type PickReadonly<T extends AnyRecord> = Pick<T, ReadonlyKeys<T>>
 
 /**
  * @description Omit readonly types
@@ -61,4 +61,4 @@ export type PickReadonlyTypes<T extends AnyRecord> = Pick<T, ReadonlyKeys<T>>
  * // ^? { age: number }
  * ```
  */
-export type OmitReadonlyTypes<T extends AnyRecord> = Omit<T, ReadonlyKeys<T>>
+export type OmitReadonly<T extends AnyRecord> = Omit<T, ReadonlyKeys<T>>

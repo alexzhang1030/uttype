@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import type { OmitByType, OmitReadonlyTypes, PickByType, PickReadonlyTypes } from '..'
+import type { OmitByType, OmitReadonly, PickByType, PickReadonly } from '..'
 import { describe } from './.internal'
 
 describe('OmitByType', () => {
@@ -47,7 +47,7 @@ describe('PickReadonlyTypes', () => {
   }
 
   type _case = Expect<
-   Equal<PickReadonlyTypes<Source>, Expected>
+   Equal<PickReadonly<Source>, Expected>
   >
 })
 
@@ -64,6 +64,6 @@ describe('OmitReadonlyTypes', () => {
   }
 
   type _case = Expect<
-   Equal<OmitReadonlyTypes<Source>, Expected>
+   Equal<OmitReadonly<Source>, Expected>
   >
 })
