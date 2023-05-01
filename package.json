@@ -28,7 +28,7 @@
     "@type-challenges/utils": "^0.1.1",
     "bumpp": "^9.1.0",
     "eslint": "^8.39.0",
-    "lint-staged": "^13.2.1",
+    "lint-staged": "^13.2.2",
     "simple-git-hooks": "^2.8.1",
     "typescript": "^5.0.4"
   },
