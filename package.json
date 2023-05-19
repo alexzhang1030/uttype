@@ -1,7 +1,7 @@
 {
   "name": "uttype",
   "version": "0.2.1",
-  "packageManager": "pnpm@8.4.0",
+  "packageManager": "pnpm@8.5.1",
   "description": "Utility types library.",
   "author": "alexzhang1030",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config-ts": "^0.38.6",
+    "@antfu/eslint-config-ts": "^0.39.0",
     "@type-challenges/utils": "^0.1.1",
     "bumpp": "^9.1.0",
     "eslint": "^8.40.0",
