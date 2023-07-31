@@ -15,12 +15,19 @@
     "tiny",
     "helper"
   ],
-  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
-    "prepublishOnly": "pnpm run test",
+    "prepublishOnly": "pnpm run test && tsup",
     "release": "bumpp --commit \"chore: release v%s\" --push --tag && pnpm publish",
     "test": "tsc --noEmit",
     "prepare": "simple-git-hooks"
@@ -32,6 +39,7 @@
     "eslint": "^8.46.0",
     "lint-staged": "^13.2.3",
     "simple-git-hooks": "^2.9.0",
+    "tsup": "^7.1.0",
     "typescript": "^5.1.6"
   },
   "simple-git-hooks": {
