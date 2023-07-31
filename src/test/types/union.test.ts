@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import type { RecordValues } from '../src'
+import type { RecordValues } from '../../types'
 import { describe } from './.internal'
 
 describe('RecordValueUnion', () => {

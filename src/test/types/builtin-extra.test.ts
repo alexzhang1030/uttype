@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import type { OmitByType, OmitReadonly, PickByType, PickReadonly } from '..'
+import type { OmitByType, OmitReadonly, PickByType, PickReadonly } from '../../types'
 import { describe } from './.internal'
 
 describe('OmitByType', () => {

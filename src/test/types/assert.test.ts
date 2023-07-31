@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import type { AssertFalse, AssertTrue } from '../src'
+import type { AssertFalse, AssertTrue } from '../../types'
 import { describe } from './.internal'
 
 describe('AssertTrue', () => {

@@ -1,6 +1,6 @@
 # uttype 
 
-Utility type library.
+Tiny helper library with some useful functions / types.
 
 ## Types
 
@@ -20,3 +20,7 @@ built-in extra
 union
 
 - `RecordValues`
+
+## License
+
+MIT
