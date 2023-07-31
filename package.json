@@ -1,6 +1,6 @@
 {
   "name": "uttype",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "packageManager": "pnpm@8.6.11",
   "description": "Tiny helper library with some useful functions / types.",
   "author": "alexzhang1030",
