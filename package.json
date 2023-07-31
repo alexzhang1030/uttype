@@ -11,7 +11,9 @@
   },
   "keywords": [
     "types",
-    "utility"
+    "utility",
+    "tiny",
+    "helper"
   ],
   "types": "./src/index.ts",
   "files": [
