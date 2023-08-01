@@ -12,3 +12,7 @@ export function entriesFind<
 ) {
   return entries(obj).find(predicate)
 }
+
+export function oneOf<T = unknown>(value: T, values: T[]) {
+  return values.includes(value)
+}
