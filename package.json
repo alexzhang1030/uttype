@@ -1,7 +1,7 @@
 {
   "name": "uttype",
   "version": "0.4.2",
-  "packageManager": "pnpm@8.6.11",
+  "packageManager": "pnpm@8.6.12",
   "description": "Tiny helper library with some useful functions / types.",
   "author": "alexzhang1030",
   "license": "MIT",
@@ -33,13 +33,13 @@
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config-ts": "^0.39.8",
+    "@antfu/eslint-config-ts": "^0.40.0",
     "@type-challenges/utils": "^0.1.1",
     "bumpp": "^9.1.1",
     "eslint": "^8.46.0",
     "lint-staged": "^13.2.3",
     "simple-git-hooks": "^2.9.0",
-    "tsup": "^7.1.0",
+    "tsup": "^7.2.0",
     "typescript": "^5.1.6"
   },
   "simple-git-hooks": {
