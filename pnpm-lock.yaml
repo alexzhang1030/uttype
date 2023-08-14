@@ -18,8 +18,8 @@ devDependencies:
     specifier: ^8.47.0
     version: 8.47.0
   lint-staged:
-    specifier: ^13.3.0
-    version: 13.3.0
+    specifier: ^14.0.0
+    version: 14.0.0
   simple-git-hooks:
     specifier: ^2.9.0
     version: 2.9.0
@@ -401,7 +401,7 @@ packages:
     dependencies:
       call-me-maybe: 1.0.2
       cross-spawn: 7.0.3
-      string-argv: 0.3.1
+      string-argv: 0.3.2
       type-detect: 4.0.8
     dev: true
 
@@ -1921,8 +1921,8 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
 
-  /lint-staged@13.3.0:
-    resolution: {integrity: sha512-mPRtrYnipYYv1FEE134ufbWpeggNTo+O/UPzngoaKzbzHAthvR55am+8GfHTnqNRQVRRrYQLGW9ZyUoD7DsBHQ==}
+  /lint-staged@14.0.0:
+    resolution: {integrity: sha512-0tLf0pqZYkar/wu3nTctk4rVIG+d7PanDYv4/IQR4qwdqfQkTDziLRFnqMcLuLBTuUqmcLwsHPD2EjQ18d/oaA==}
     engines: {node: ^16.14.0 || >=18.0.0}
     hasBin: true
     dependencies:
@@ -2347,7 +2347,7 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.1.0
-      yaml: 2.2.2
+      yaml: 2.3.1
     dev: true
 
   /prelude-ls@1.2.1:
@@ -2566,11 +2566,6 @@ packages:
 
   /spdx-license-ids@3.0.13:
     resolution: {integrity: sha512-XkD+zwiqXHikFZm4AX/7JSCXA98U5Db4AFd5XUg/+9UNtnH75+Z9KxtpYiJZx36mUDVOwH83pl7yvCer6ewM3w==}
-    dev: true
-
-  /string-argv@0.3.1:
-    resolution: {integrity: sha512-a1uQGz7IyVy9YwhqjZIZu1c8JO8dNIe20xBmSS6qu9kv++k3JGzCVmprbNN5Kn+BgzD5E7YYwg1CcjuJMRNsvg==}
-    engines: {node: '>=0.6.19'}
     dev: true
 
   /string-argv@0.3.2:
@@ -2870,12 +2865,7 @@ packages:
     dependencies:
       eslint-visitor-keys: 3.4.2
       lodash: 4.17.21
-      yaml: 2.2.2
-    dev: true
-
-  /yaml@2.2.2:
-    resolution: {integrity: sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==}
-    engines: {node: '>= 14'}
+      yaml: 2.3.1
     dev: true
 
   /yaml@2.3.1:
