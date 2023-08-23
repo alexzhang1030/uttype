@@ -41,6 +41,18 @@ function entriesFind<T extends Recordable = Recordable>(obj: T, predicate: (item
 function oneOf<T extends unknown[] = unknown[]>(value: T[number], values: T): value is T[number]
 ```
 
+- `debounce`
+
+```ts
+function debounce<F extends (...args: any[]) => any>(func: F, wait: number): F
+```
+
+- `throttle`
+
+```ts
+function throttle<F extends (...args: any[]) => any>(func: F, limit: number): F
+```
+
 ## License
 
 MIT

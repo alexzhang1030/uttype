@@ -9,7 +9,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "types": ["vitest/globals"]
   },
   "include": ["src"],
   "exclude": ["src/**/*.test.ts"]
