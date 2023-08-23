@@ -20,21 +20,21 @@ export function oneOf<T extends unknown[] = unknown[]>(value: T[number], values:
 export function debounce<F extends (...args: any[]) => any>(func: F, wait: number): F {
   let timeout: ReturnType<typeof setTimeout> | null
 
-  return ((...args: Parameters<F>) => {
+  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
     const later = () => {
       timeout = null
-      func.apply(args)
+      func.apply(this, args)
     }
 
     if (timeout)
       clearTimeout(timeout)
     timeout = setTimeout(later, wait)
-  }) as F
+  } as F
 }
 
 export function throttle<F extends (...args: any[]) => any>(func: F, limit: number): F {
   let inThrottle: boolean
-  return ((...args: Parameters<F>) => {
+  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
     if (!inThrottle) {
       func.apply(args)
       inThrottle = true
@@ -42,5 +42,5 @@ export function throttle<F extends (...args: any[]) => any>(func: F, limit: numb
         inThrottle = false
       }, limit)
     }
-  }) as F
+  } as F
 }
