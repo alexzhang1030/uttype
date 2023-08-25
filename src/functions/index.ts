@@ -44,3 +44,34 @@ export function throttle<F extends (...args: any[]) => any>(func: F, limit: numb
     }
   } as F
 }
+
+export function loop<T>(arr: T[], callback: (item: T, index: number) => void) {
+  let index = 0
+  const len = arr.length
+  while (index < len) {
+    callback(arr[index], index)
+    index++
+  }
+}
+
+export function rangeLoop(start: number, end: number, callback: (index: number) => void) {
+  let index = start
+  while (index <= end) {
+    callback(index)
+    index++
+  }
+}
+
+export function loopAsync<T>(arr: T[], callback: (item: T, index: number) => Promise<void>) {
+  let index = 0
+  const len = arr.length
+  const next = () => {
+    if (index < len) {
+      callback(arr[index], index).then(() => {
+        index++
+        next()
+      })
+    }
+  }
+  next()
+}
