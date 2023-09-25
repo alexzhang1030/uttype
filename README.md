@@ -17,6 +17,8 @@ built-in extra
 - `PickReadonly`
 - `OmitReadonly`
 
+- `PartialByKey`
+
 union
 
 - `RecordValues`

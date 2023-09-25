@@ -62,3 +62,14 @@ export type PickReadonly<T extends AnyRecord> = Pick<T, ReadonlyKeys<T>>
  * ```
  */
 export type OmitReadonly<T extends AnyRecord> = Omit<T, ReadonlyKeys<T>>
+
+/**
+ * @description Partial by given keys
+ * @example
+ *
+ * ```ts
+ * PartialByKey<{ name: string, age: number }, 'name'>
+ * // ^? { name?: string, age: number }
+ * ```
+ */
+export type PartialByKey<T extends AnyRecord, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
