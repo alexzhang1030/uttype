@@ -75,3 +75,10 @@ export function loopAsync<T>(arr: T[], callback: (item: T, index: number) => Pro
   }
   next()
 }
+
+export function mapObject<T extends Recordable, V>(obj: T, cb: (value: T[keyof T], key: keyof T) => V) {
+  return entries(obj).reduce((acc, [key, value]) => {
+    acc[key] = cb(value, key)
+    return acc
+  }, {} as { [key in keyof T]: ReturnType<typeof cb> })
+}

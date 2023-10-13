@@ -73,6 +73,12 @@ function rangeLoop(start: number, end: number, callback: (index: number) => void
 function loopAsync<T>(arr: T[], callback: (item: T, index: number) => Promise<void>): void
 ```
 
+- `mapObject`
+
+```ts
+function mapObject<T extends Recordable, V>(obj: T, cb: (value: T[keyof T], key: keyof T) => V): { [key in keyof T]: V; }
+```
+
 ## License
 
 MIT

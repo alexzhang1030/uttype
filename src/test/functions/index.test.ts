@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest'
-import { debounce, throttle } from '../../functions'
+import { debounce, mapObject, throttle } from '../../functions'
 
 describe('debounce function', () => {
   test('should call the debounced function only once after the specified delay', () => {
@@ -32,5 +32,28 @@ describe('throttle function', () => {
     setTimeout(() => {
       expect(func).toHaveBeenCalledTimes(2)
     }, 150)
+  })
+})
+
+describe('mapObject', () => {
+  test('should return correctly', () => {
+    const object = {
+      a: 1,
+      b: 2,
+    }
+    expect(mapObject(object, v => v * 2)).toEqual({
+      a: 2,
+      b: 4,
+    })
+  })
+  test('different type', () => {
+    const object = {
+      a: 1,
+      b: 2,
+    }
+    expect(mapObject(object, (v, k) => k)).toEqual({
+      a: 'a',
+      b: 'b',
+    })
   })
 })
