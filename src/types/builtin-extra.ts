@@ -73,3 +73,14 @@ export type OmitReadonly<T extends AnyRecord> = Omit<T, ReadonlyKeys<T>>
  * ```
  */
 export type PartialByKey<T extends AnyRecord, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+
+/**
+ * @description Deep partial
+ * @example
+ *
+ * ```ts
+ * DeepPartial<{ name: string, age: number, info: { address: string } }>
+ * // ^? { name?: string, age?: number, info?: { address?: string } }
+ * ```
+ */
+export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]>; } : T

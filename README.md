@@ -18,6 +18,7 @@ built-in extra
 - `OmitReadonly`
 
 - `PartialByKey`
+- `DeepPartial`
 
 union
 
