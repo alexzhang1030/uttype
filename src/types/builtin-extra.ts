@@ -84,3 +84,18 @@ export type PartialByKey<T extends AnyRecord, K extends keyof T> = Omit<T, K> & 
  * ```
  */
 export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]>; } : T
+
+/**
+ * @description Extract Optional
+ * @example
+ *
+ * ```ts
+ * ExtractOptional<{ name: string, age?: number }>
+ * // ^? { age?: number }
+ * ```
+ */
+export type ExtractOptional<T extends object> = Pick<T, Exclude<{
+  [K in keyof T]: T extends Record<K, T[K]>
+    ? never
+    : K
+}[keyof T], undefined>>

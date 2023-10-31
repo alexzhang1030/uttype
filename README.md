@@ -20,6 +20,8 @@ built-in extra
 - `PartialByKey`
 - `DeepPartial`
 
+- `ExtractOptional`
+
 union
 
 - `RecordValues`

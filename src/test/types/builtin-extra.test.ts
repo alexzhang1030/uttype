@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import type { DeepPartial, OmitByType, OmitReadonly, PickByType, PickReadonly } from '../../types'
+import type { DeepPartial, ExtractOptional, OmitByType, OmitReadonly, PickByType, PickReadonly } from '../../types'
 import { describe } from './.internal'
 
 describe('OmitByType', () => {
@@ -91,5 +91,20 @@ describe('Deep partial', () => {
 
   type _case = Expect<
    Equal<DeepPartial<Source>, Expected>
+  >
+})
+
+describe('Extract optional', () => {
+  interface Source {
+    a?: string
+    b: number
+  }
+
+  interface Expected {
+    a?: string
+  }
+
+  type _case = Expect<
+   Equal<ExtractOptional<Source>, Expected>
   >
 })
