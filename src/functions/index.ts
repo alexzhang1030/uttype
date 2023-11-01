@@ -1,6 +1,6 @@
 import type { Recordable } from '../types'
 
-export function entries<T extends Recordable>(obj: T): [keyof T, T[keyof T]][] {
+export function entries<T extends object>(obj: T): [keyof T, T[keyof T]][] {
   return Object.entries(obj) as any
 }
 
@@ -76,7 +76,7 @@ export function loopAsync<T>(arr: T[], callback: (item: T, index: number) => Pro
   next()
 }
 
-export function mapObject<T extends Recordable, V>(obj: T, cb: (value: T[keyof T], key: keyof T) => V) {
+export function mapObject<T extends object, V>(obj: T, cb: (value: T[keyof T], key: keyof T) => V) {
   return entries(obj).reduce((acc, [key, value]) => {
     acc[key] = cb(value, key)
     return acc
