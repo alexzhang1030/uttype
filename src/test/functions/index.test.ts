@@ -1,8 +1,8 @@
-import { describe, expect, test, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { debounce, mapObject, throttle } from '../../functions'
 
 describe('debounce function', () => {
-  test('should call the debounced function only once after the specified delay', () => {
+  it('should call the debounced function only once after the specified delay', () => {
     const func = vi.fn()
     const debouncedFunc = debounce(func, 100)
 
@@ -17,7 +17,7 @@ describe('debounce function', () => {
 })
 
 describe('throttle function', () => {
-  test('should call the throttled function only once within the specified time limit', () => {
+  it('should call the throttled function only once within the specified time limit', () => {
     const func = vi.fn()
     const throttledFunc = throttle(func, 100)
 
@@ -36,7 +36,7 @@ describe('throttle function', () => {
 })
 
 describe('mapObject', () => {
-  test('should return correctly', () => {
+  it('should return correctly', () => {
     const object = {
       a: 1,
       b: 2,
@@ -46,7 +46,7 @@ describe('mapObject', () => {
       b: 4,
     })
   })
-  test('different type', () => {
+  it('different type', () => {
     const object = {
       a: 1,
       b: 2,
