@@ -1,12 +1,10 @@
 import type { AssertFalse, AssertTrue } from './assert'
 import type { AnyRecord, IfEquals } from './.internal'
 
-type OmitOrPickByType<Source, Type, Omit extends boolean = true> = Pick<Source,
-  {
-    [K in keyof Source]: Source[K] extends Type ?
-      AssertFalse<Omit, K> : AssertTrue<Omit, K>
-  }[keyof Source]
->
+type OmitOrPickByType<Source, Type, Omit extends boolean = true> = Pick<Source, {
+  [K in keyof Source]: Source[K] extends Type ?
+    AssertFalse<Omit, K> : AssertTrue<Omit, K>
+}[keyof Source]>
 
 /**
  * @description Omit by given type
@@ -46,7 +44,7 @@ type ReadonlyKeys<T extends AnyRecord> = {
  * @example
  *
  * ```ts
- * PickReadonlyTypes<{ readonly name: string, age: number }>
+ * PickReadonly<{ readonly name: string, age: number }>
  * // ^? { readonly name: string }
  * ```
  */
@@ -57,7 +55,7 @@ export type PickReadonly<T extends AnyRecord> = Pick<T, ReadonlyKeys<T>>
  * @example
  *
  * ```ts
- * PickReadonlyTypes<{ readonly name: string, age: number }>
+ * OmitReadonly<{ readonly name: string, age: number }>
  * // ^? { age: number }
  * ```
  */
