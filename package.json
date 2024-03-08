@@ -1,7 +1,7 @@
 {
   "name": "uttype",
   "type": "module",
-  "version": "0.7.5",
+  "version": "0.8.0",
   "packageManager": "pnpm@8.15.3",
   "description": "Tiny helper library with some useful functions / types.",
   "author": "alexzhang1030",
