@@ -6,6 +6,7 @@
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
+  "typescript.tsdk": "node_modules/typescript/lib",
   "eslint.rules.customizations": [
     {
       "rule": "style/*",

@@ -13,7 +13,10 @@ export function entriesFind<
   return entries(obj).find(predicate)
 }
 
-export function oneOf<T extends unknown[] = unknown[]>(value: T[number], values: T): value is T[number] {
+export function oneOf<
+  const T extends unknown[] = unknown[],
+  const V extends T[number] = T[number],
+>(value: V, values: T): value is V {
   return values.includes(value)
 }
 
