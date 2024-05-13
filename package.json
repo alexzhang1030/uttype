@@ -2,7 +2,7 @@
   "name": "uttype",
   "type": "module",
   "version": "0.8.0",
-  "packageManager": "pnpm@9.1.0",
+  "packageManager": "pnpm@9.1.1",
   "description": "Tiny helper library with some useful functions / types.",
   "author": "alexzhang1030",
   "license": "MIT",
@@ -36,7 +36,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.16.1",
+    "@antfu/eslint-config": "^2.17.0",
     "@type-challenges/utils": "^0.1.1",
     "bumpp": "^9.4.1",
     "eslint": "^9.2.0",
