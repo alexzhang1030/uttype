@@ -1,4 +1,4 @@
-# uttype 
+# uttype
 
 Tiny helper library with some useful functions / types.
 
@@ -18,7 +18,10 @@ built-in extra
 - `OmitReadonly`
 
 - `PartialByKey`
+- `RequiredByKey`
+
 - `DeepPartial`
+- `DeepRequired`
 
 - `ExtractOptional`
 

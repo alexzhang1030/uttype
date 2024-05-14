@@ -1,5 +1,6 @@
 import type { AssertFalse, AssertTrue } from './assert'
 import type { AnyRecord, IfEquals } from './.internal'
+import type { Prettify } from './index'
 
 type OmitOrPickByType<Source, Type, Omit extends boolean = true> = Pick<Source, {
   [K in keyof Source]: Source[K] extends Type ?
@@ -68,9 +69,25 @@ export type OmitReadonly<T extends AnyRecord> = Omit<T, ReadonlyKeys<T>>
  * ```ts
  * PartialByKey<{ name: string, age: number }, 'name'>
  * // ^? { name?: string, age: number }
+ *
+ * PartialByKey<{ name: string, foo: { bar: number } }, 'foo', true>
+ * // ^? { name: string, foo?: { bar?: number } }
  * ```
  */
-export type PartialByKey<T extends AnyRecord, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+export type PartialByKey<T extends AnyRecord, K extends keyof T, Deep extends boolean = false> = Prettify<Omit<T, K> & (Deep extends true ? DeepPartial<Pick<T, K>> : Partial<Pick<T, K>>)>
+
+/**
+ * @description Required by given keys
+ * @example
+ *
+ * ```ts
+ * RequiredByKey<{ name?: string, age: number }, 'name'>
+ * // ^? { name: string, age: number }
+ *
+ * RequiredByKey<{ name?: string, foo?: { bar?: number } }, 'foo', true>
+ * // ^? { name?: string, foo: { bar: number } }
+ */
+export type RequiredByKey<T extends AnyRecord, K extends keyof T, Deep extends boolean = false> = Prettify<Omit<T, K> & (Deep extends true ? DeepRequired<Pick<T, K>> : Required<Pick<T, K>>)>
 
 /**
  * @description Deep partial
@@ -81,7 +98,18 @@ export type PartialByKey<T extends AnyRecord, K extends keyof T> = Omit<T, K> & 
  * // ^? { name?: string, age?: number, info?: { address?: string } }
  * ```
  */
-export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]>; } : T
+export type DeepPartial<T> = T extends object ? Prettify<{ [P in keyof T]?: DeepPartial<T[P]>; }> : T
+
+/**
+ * @description Deep required
+ * @example
+ *
+ * ```ts
+ * DeepRequired<{ name?: string, age?: number, user?: { name?: string, number?: age } }>
+ * // ^? { name: string, age: number, user: { name: string, number: age } }
+ * ```
+ */
+export type DeepRequired<T> = T extends object ? Prettify<{ [P in keyof T]-?: DeepRequired<T[P]>; }> : T
 
 /**
  * @description Extract Optional

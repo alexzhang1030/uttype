@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import type { DeepPartial, ExtractOptional, OmitByType, OmitReadonly, PickByType, PickReadonly } from '../../types'
+import type { DeepPartial, DeepRequired, ExtractOptional, OmitByType, OmitReadonly, PartialByKey, PickByType, PickReadonly, RequiredByKey } from '../../types'
 import { describe } from './.internal'
 
 describe('OmitByType', () => {
@@ -106,5 +106,99 @@ describe('Extract optional', () => {
 
   type _case = Expect<
    Equal<ExtractOptional<Source>, Expected>
+  >
+})
+
+describe('Deep required', () => {
+  interface Source {
+    a?: {
+      b?: {
+        c?: {
+          d?: string
+        }
+      }
+    }
+  }
+
+  interface Expected {
+    a: {
+      b: {
+        c: {
+          d: string
+        }
+      }
+    }
+  }
+
+  type _case = Expect<
+   Equal<DeepRequired<Source>, Expected>
+  >
+})
+
+describe('Partial by keys', () => {
+  interface TestCaseOne {
+    name: string
+    age: number
+  }
+
+  interface ExpectOne {
+    name?: string
+    age: number
+  }
+
+  type _caseOne = Expect<
+    Equal<PartialByKey<TestCaseOne, 'name'>, ExpectOne>
+  >
+
+  interface TestCaseTwo {
+    name: string
+    foo: {
+      bar: number
+    }
+  }
+
+  interface ExpectTwo {
+    name: string
+    foo?: {
+      bar?: number
+    }
+  }
+
+  type _caseTwo = Expect<
+    Equal<PartialByKey<TestCaseTwo, 'foo', true>, ExpectTwo>
+  >
+})
+
+describe('Required by keys', () => {
+  interface TestCaseOne {
+    name?: string
+    age: number
+  }
+
+  interface ExpectOne {
+    name: string
+    age: number
+  }
+
+  type _caseOne = Expect<
+    Equal<RequiredByKey<TestCaseOne, 'name'>, ExpectOne>
+  >
+
+  interface TestCaseTwo {
+    name?: string
+    foo?: {
+      bar?: number
+    }
+  }
+
+  interface ExpectTwo {
+    name?: string
+    foo: {
+      bar: number
+    }
+  }
+
+  type _caseTwo = Expect<
+    Equal<RequiredByKey<TestCaseTwo, 'foo', true>, ExpectTwo>
   >
 })
