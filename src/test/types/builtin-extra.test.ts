@@ -207,14 +207,14 @@ describe('Omit union', () => {
   type Source = {
     name: string
     age: number
-    isMale: boolean
+    isMale?: boolean
   } | {
     name: string
     age: number
     foo: number
   }
 
-  type Expected = { isMale: boolean } | { foo: number }
+  type Expected = { isMale?: boolean } | { foo: number }
 
   type _case = Expect<
     Equal<OmitKeys<Source, 'name' | 'age'>, Expected>
