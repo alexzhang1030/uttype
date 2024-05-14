@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import type { DeepPartial, DeepRequired, ExtractOptional, OmitByType, OmitReadonly, PartialByKey, PickByType, PickReadonly, RequiredByKey } from '../../types'
+import type { DeepPartial, DeepRequired, ExtractOptional, OmitByType, OmitKeys, OmitReadonly, PartialByKey, PickByType, PickReadonly, RequiredByKey } from '../../types'
 import { describe } from './.internal'
 
 describe('OmitByType', () => {
@@ -200,5 +200,31 @@ describe('Required by keys', () => {
 
   type _caseTwo = Expect<
     Equal<RequiredByKey<TestCaseTwo, 'foo', true>, ExpectTwo>
+  >
+})
+
+describe('Omit union', () => {
+  type Source = {
+    name: string
+    age: number
+    isMale: boolean
+  } | {
+    name: string
+    age: number
+    foo: number
+  }
+
+  type Expected = { isMale: boolean } | { foo: number }
+
+  type _case = Expect<
+    Equal<OmitKeys<Source, 'name' | 'age'>, Expected>
+  >
+
+  type _case2 = Expect<
+    Equal<OmitKeys<{
+      name: string
+      age: number
+      foo: boolean
+    }, 'name' | 'age'>, { foo: boolean }>
   >
 })

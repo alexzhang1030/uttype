@@ -25,6 +25,8 @@ built-in extra
 
 - `ExtractOptional`
 
+- `OmitKeys`
+
 union
 
 - `RecordValues`

@@ -125,3 +125,19 @@ export type ExtractOptional<T extends object> = Pick<T, Exclude<{
     ? never
     : K
 }[keyof T], undefined>>
+
+type OmitKeysHelper<T, K extends keyof any> = {
+  [P in Exclude<keyof T, K>]: T[P]
+}
+
+/**
+ * @description Omit keys (enhanced builtin omit)
+ * @example
+ *
+ * ```ts
+ * type Test = { name: string, foo: number } | { age: number, name: string }
+ * OmitUnion<Test, 'name'>
+ * // ^? { foo: number } | { age: number }
+ *
+ */
+export type OmitKeys<T, K extends keyof any> = T extends any ? Prettify<OmitKeysHelper<T, K>> : never
