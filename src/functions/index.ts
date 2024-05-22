@@ -1,4 +1,4 @@
-import type { Recordable } from '../types'
+import type { OmitKeys, Prettify, Recordable } from '../types'
 
 export function entries<T extends object>(obj: T): [keyof T, T[keyof T]][] {
   return Object.entries(obj) as any
@@ -84,4 +84,15 @@ export function mapObject<T extends object, V>(obj: T, cb: (value: T[keyof T], k
     acc[key] = cb(value, key)
     return acc
   }, {} as { [key in keyof T]: ReturnType<typeof cb> })
+}
+
+/**
+ * Omit the specified keys, non recursively
+ */
+export function omitKeys<T extends object, K extends keyof T>(obj: T, keys: K[]): Prettify<OmitKeys<T, K>> {
+  const result = { ...obj }
+  keys.forEach((key) => {
+    Reflect.deleteProperty(result, key)
+  })
+  return result as any
 }

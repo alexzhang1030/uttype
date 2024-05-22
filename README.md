@@ -87,6 +87,12 @@ function loopAsync<T>(arr: T[], callback: (item: T, index: number) => Promise<vo
 function mapObject<T extends Recordable, V>(obj: T, cb: (value: T[keyof T], key: keyof T) => V): { [key in keyof T]: V; }
 ```
 
+- `omitKeys`
+
+```ts
+function omitKeys<T extends object, K extends keyof T>(obj: T, keys: K[]): Prettify<OmitKeys<T, K>>
+```
+
 ## License
 
 MIT
