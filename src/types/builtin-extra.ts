@@ -86,6 +86,7 @@ export type PartialByKey<T extends AnyRecord, K extends keyof T, Deep extends bo
  *
  * RequiredByKey<{ name?: string, foo?: { bar?: number } }, 'foo', true>
  * // ^? { name?: string, foo: { bar: number } }
+ * ```
  */
 export type RequiredByKey<T extends AnyRecord, K extends keyof T, Deep extends boolean = false> = Prettify<Omit<T, K> & (Deep extends true ? DeepRequired<Pick<T, K>> : Required<Pick<T, K>>)>
 
@@ -120,11 +121,26 @@ export type DeepRequired<T> = T extends object ? Prettify<{ [P in keyof T]-?: De
  * // ^? { age?: number }
  * ```
  */
-export type ExtractOptional<T extends object> = Pick<T, Exclude<{
+export type ExtractOptional<T extends object> = Prettify<Pick<T, Exclude<{
   [K in keyof T]: T extends Record<K, T[K]>
     ? never
     : K
-}[keyof T], undefined>>
+}[keyof T], undefined>>>
+
+/**
+ * @description Extract Non Nullable
+ * @example
+ *
+ * ```ts
+ * ExtractNonNullable<{ name: string, age: number | null }>
+ * // ^? { name: string }
+ * ```
+ */
+export type ExtractNonNullable<T extends object> = Prettify<Pick<T, Exclude<{
+  [K in keyof T]: T extends Record<K, NonNullable<T[K]>>
+    ? K
+    : never
+}[keyof T], undefined>>>
 
 type OmitKeysHelper<T, K extends keyof any> = {
   [P in keyof T as Exclude<P, K>]: T[P]

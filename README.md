@@ -24,6 +24,7 @@ built-in extra
 - `DeepRequired`
 
 - `ExtractOptional`
+- `ExtractNonNullable`
 
 - `OmitKeys`
 
@@ -91,6 +92,12 @@ function mapObject<T extends Recordable, V>(obj: T, cb: (value: T[keyof T], key:
 
 ```ts
 function omitKeys<T extends object, K extends keyof T>(obj: T, keys: K[]): Prettify<OmitKeys<T, K>>
+```
+
+- `removeNullishFields`
+
+```ts
+function removeNullishFields<T extends object>(obj: T): ExtractNonNullable<T>
 ```
 
 ## License

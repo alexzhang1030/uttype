@@ -1,4 +1,4 @@
-import type { OmitKeys, Prettify, Recordable } from '../types'
+import type { ExtractNonNullable, OmitKeys, Prettify, Recordable } from '../types'
 
 export function entries<T extends object>(obj: T): [keyof T, T[keyof T]][] {
   return Object.entries(obj) as any
@@ -95,4 +95,15 @@ export function omitKeys<T extends object, K extends keyof T>(obj: T, keys: K[])
     Reflect.deleteProperty(result, key)
   })
   return result as any
+}
+
+/**
+ * Remove nullish (null / undefined) fields from an object
+ */
+export function removeNullishFields<T extends object>(obj: T): ExtractNonNullable<T> {
+  return Object.fromEntries(
+    entries(obj).filter(([, value]) => {
+      return value !== null && typeof value !== 'undefined'
+    }),
+  ) as any
 }

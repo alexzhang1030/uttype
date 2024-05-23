@@ -1,5 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import type { DeepPartial, DeepRequired, ExtractOptional, OmitByType, OmitKeys, OmitReadonly, PartialByKey, PickByType, PickReadonly, RequiredByKey } from '../../types'
+import type { DeepPartial, DeepRequired, ExtractNonNullable, ExtractOptional, OmitByType, OmitKeys, OmitReadonly, PartialByKey, PickByType, PickReadonly, RequiredByKey } from '../../types'
 import { describe } from './.internal'
 
 describe('OmitByType', () => {
@@ -226,5 +226,21 @@ describe('Omit union', () => {
       age: number
       foo: boolean
     }, 'name' | 'age'>, { foo: boolean }>
+  >
+})
+
+describe('Extract non-nullable', () => {
+  interface Source {
+    name: string
+    age: number | null
+    isMale: boolean | null
+  }
+
+  interface Expected {
+    name: string
+  }
+
+  type _case = Expect<
+    Equal<ExtractNonNullable<Source>, Expected>
   >
 })

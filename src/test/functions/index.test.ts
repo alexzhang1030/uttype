@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { debounce, mapObject, omitKeys, throttle } from '../../functions'
+import { debounce, mapObject, omitKeys, removeNullishFields, throttle } from '../../functions'
 
 describe('debounce function', () => {
   it('should call the debounced function only once after the specified delay', () => {
@@ -75,6 +75,31 @@ describe('omitKeys', () => {
     }
     expect(omitKeys(object, ['a'])).toEqual({
       b: '2',
+    })
+  })
+})
+
+describe('removeNullishFields', () => {
+  it('should remove nullish fields', () => {
+    const obj = {
+      a: 1,
+      b: null,
+      c: undefined,
+    }
+
+    expect(removeNullishFields(obj)).toEqual({
+      a: 1,
+    })
+  })
+  it('should work with different types', () => {
+    const obj = {
+      a: 1,
+      b: null,
+      c: '2',
+    }
+    expect(removeNullishFields(obj)).toEqual({
+      a: 1,
+      c: '2',
     })
   })
 })
