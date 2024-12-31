@@ -1,1 +1,1 @@
-export const describe = (name: string, cb: Function) => { }
+export function describe(_name: string, _cb: () => any) { }

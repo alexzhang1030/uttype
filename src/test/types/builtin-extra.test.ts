@@ -14,7 +14,7 @@ describe('OmitByType', () => {
   }
 
   type _case = Expect<
-   Equal<OmitByType<Source, string | boolean>, Expected>
+    Equal<OmitByType<Source, string | boolean>, Expected>
   >
 })
 
@@ -31,7 +31,7 @@ describe('PickByType', () => {
   }
 
   type _case = Expect<
-   Equal<PickByType<Source, string | boolean>, Expected>
+    Equal<PickByType<Source, string | boolean>, Expected>
   >
 })
 
@@ -47,7 +47,7 @@ describe('PickReadonlyTypes', () => {
   }
 
   type _case = Expect<
-   Equal<PickReadonly<Source>, Expected>
+    Equal<PickReadonly<Source>, Expected>
   >
 })
 
@@ -64,7 +64,7 @@ describe('OmitReadonlyTypes', () => {
   }
 
   type _case = Expect<
-   Equal<OmitReadonly<Source>, Expected>
+    Equal<OmitReadonly<Source>, Expected>
   >
 })
 
@@ -90,7 +90,7 @@ describe('Deep partial', () => {
   }
 
   type _case = Expect<
-   Equal<DeepPartial<Source>, Expected>
+    Equal<DeepPartial<Source>, Expected>
   >
 })
 
@@ -105,7 +105,7 @@ describe('Extract optional', () => {
   }
 
   type _case = Expect<
-   Equal<ExtractOptional<Source>, Expected>
+    Equal<ExtractOptional<Source>, Expected>
   >
 })
 
@@ -131,7 +131,7 @@ describe('Deep required', () => {
   }
 
   type _case = Expect<
-   Equal<DeepRequired<Source>, Expected>
+    Equal<DeepRequired<Source>, Expected>
   >
 })
 

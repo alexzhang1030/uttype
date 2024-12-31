@@ -32,6 +32,13 @@ union
 
 - `RecordValues`
 
+utilities
+
+- `MaybePromise`
+- `Prettify`
+- `Recordable`
+- `Nullable`
+
 ## Functions
 
 - `entries`
@@ -98,6 +105,12 @@ function omitKeys<T extends object, K extends keyof T>(obj: T, keys: K[]): Prett
 
 ```ts
 function removeNullishFields<T extends object>(obj: T): ExtractNonNullable<T>
+```
+
+- `must`
+
+```ts
+function must<T>(value: T | null | undefined): T
 ```
 
 ## License

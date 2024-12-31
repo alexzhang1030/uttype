@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { debounce, mapObject, omitKeys, removeNullishFields, throttle } from '../../functions'
+import { debounce, mapObject, must, omitKeys, removeNullishFields, throttle } from '../../functions'
 
 describe('debounce function', () => {
   it('should call the debounced function only once after the specified delay', () => {
@@ -101,5 +101,23 @@ describe('removeNullishFields', () => {
       a: 1,
       c: '2',
     })
+  })
+})
+
+describe('must', () => {
+  it('should return the value if it is not null or undefined', () => {
+    expect(() => {
+      expect(must(1)).toBe(1)
+    }).not.toThrow()
+  })
+  it('should throw an error if the value is null or undefined', () => {
+    expect(() => {
+      must(null)
+    }).toThrow()
+  })
+  it('should throw an error with the specified error message', () => {
+    expect(() => {
+      must(null, 'Custom error message')
+    }).toThrow('Custom error message')
   })
 })

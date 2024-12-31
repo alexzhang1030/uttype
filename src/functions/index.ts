@@ -107,3 +107,13 @@ export function removeNullishFields<T extends object>(obj: T): ExtractNonNullabl
     }),
   ) as any
 }
+
+/**
+ * Ensure the value is not null or undefined, otherwise throw an error
+ */
+export function must<T>(value: T | null | undefined, errorMsg?: string): T {
+  if (value == null) {
+    throw new Error(errorMsg ?? 'Value is null or undefined')
+  }
+  return value
+}

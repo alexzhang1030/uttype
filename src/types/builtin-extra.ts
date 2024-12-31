@@ -1,5 +1,5 @@
-import type { AssertFalse, AssertTrue } from './assert'
 import type { AnyRecord, IfEquals } from './.internal'
+import type { AssertFalse, AssertTrue } from './assert'
 import type { Prettify } from './index'
 
 type OmitOrPickByType<Source, Type, Omit extends boolean = true> = Pick<Source, {
