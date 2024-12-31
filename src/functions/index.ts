@@ -1,4 +1,5 @@
 import type { ExtractNonNullable, OmitKeys, Prettify, Recordable } from '../types'
+import type { Nullable } from '../types/index'
 
 export function entries<T extends object>(obj: T): [keyof T, T[keyof T]][] {
   return Object.entries(obj) as any
@@ -111,7 +112,7 @@ export function removeNullishFields<T extends object>(obj: T): ExtractNonNullabl
 /**
  * Ensure the value is not null or undefined, otherwise throw an error
  */
-export function must<T>(value: T | null | undefined, errorMsg?: string): T {
+export function must<T>(value: Nullable<T>, errorMsg?: string): T {
   if (value == null) {
     throw new Error(errorMsg ?? 'Value is null or undefined')
   }
