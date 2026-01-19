@@ -39,13 +39,13 @@
   "devDependencies": {
     "@antfu/eslint-config": "^6.7.3",
     "@type-challenges/utils": "^0.1.1",
-    "bumpp": "^10.3.2",
+    "bumpp": "^10.4.0",
     "eslint": "^9.39.2",
     "lint-staged": "^16.2.7",
     "simple-git-hooks": "^2.13.1",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.17"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged"
