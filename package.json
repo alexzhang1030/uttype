@@ -2,7 +2,7 @@
   "name": "uttype",
   "type": "module",
   "version": "0.12.1",
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@11.10.0",
   "description": "Tiny helper library with some useful functions / types.",
   "author": "alexzhang1030",
   "license": "MIT",
