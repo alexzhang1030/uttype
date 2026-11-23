@@ -41,11 +41,11 @@
     "@type-challenges/utils": "^0.1.1",
     "bumpp": "^12.3.0",
     "eslint": "^10.15.0",
-    "lint-staged": "^17.6.1",
+    "lint-staged": "^17.6.2",
     "simple-git-hooks": "^2.14.0",
     "tsup": "^9.0.0",
     "typescript": "^7.0.2",
-    "vitest": "^5.1.0"
+    "vitest": "^5.1.1"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged"
